@@ -17,7 +17,7 @@ setup(
   description='python cli wrapper around an embedded, pex-bootstrapped uwsgi',
   author='@kwlzn',
   author_email='kwilson@twitter.com',
-  url='http://twitter.com',
+  url='http://github.com/kwlzn/pyuwsgi_pex',
   packages=['pyuwsgi'],
   data_files=[('pyuwsgi/resources',
                ['resources/pex_uwsgi', 'resources/__init__.py'] + extra_resources)],
