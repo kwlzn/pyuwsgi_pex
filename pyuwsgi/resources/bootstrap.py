@@ -7,7 +7,9 @@ def activate_pex():
 
   entry_point = os.environ.get('UWSGI_PEX')
   if not entry_point:
-    sys.stderr.write('couldnt determine pex from UWSGI_PEX environment variable, bailing!\n')
+    sys.stderr.write(
+      '[pex_uwsgi] couldnt determine pex from UWSGI_PEX environment variable, bailing!\n'
+    )
     sys.exit(1)
 
   sys.stderr.write('[pex_uwsgi] entry_point=%s\n' % entry_point)
