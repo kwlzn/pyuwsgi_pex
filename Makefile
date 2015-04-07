@@ -6,10 +6,10 @@ AURORA_ROLE := $(shell whoami)
 
 UNAME := $(shell uname)
 
-UWSGI_VER = 2.0.6
+UWSGI_VER = 2.0.10
 UWSGI_DIR = uwsgi-$(UWSGI_VER)
 UWSGI_FILE = $(UWSGI_DIR).tar.gz
-UWSGI_URL = http://science-binaries.local.twitter.com/home/third_party/python/$(UWSGI_FILE)
+UWSGI_URL = http://projects.unbit.it/downloads/$(UWSGI_FILE)
 
 UWSGI_BUILD_NAME = pex_uwsgi
 UWSGI_BUILD_INI_TARGET = buildconf/$(UWSGI_BUILD_NAME).ini
