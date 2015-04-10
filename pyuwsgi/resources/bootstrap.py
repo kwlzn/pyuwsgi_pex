@@ -18,15 +18,15 @@ def activate_pex():
   sys.path.insert(0, entry_point)
   sys.path.insert(0, os.path.abspath(os.path.join(entry_point, '.bootstrap')))
 
-  from _twitter_common_python import pex_bootstrapper
+  from pex import pex_bootstrapper
 
   if hasattr(pex_bootstrapper, 'bootstrap_pex_env'):
     # New-style pex bootstrapping.
     pex_bootstrapper.bootstrap_pex_env(entry_point)
   else:
     # Old and even older-style pex bootstrapping.
-    from _twitter_common_python.environment import PEXEnvironment
-    from _twitter_common_python.pex_info import PexInfo
+    from pex.environment import PEXEnvironment
+    from pex.pex_info import PexInfo
 
     try:
       pex_bootstrapper.monkeypatch_build_zipmanifest()
@@ -34,7 +34,7 @@ def activate_pex():
       pass
 
     try:
-      from _twitter_common_python.finders import register_finders
+      from pex.finders import register_finders
       register_finders()
     except (ImportError, NameError):
       pass
