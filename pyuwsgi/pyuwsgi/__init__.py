@@ -44,8 +44,6 @@ def uwsgi_context(*args, **kwargs):
   with temporary_dir(*args, **kwargs) as temp_dir:
     with pushd(temp_dir):
       write_resource(UWSGI_BINARY_PATH)
-      if pkg_resources.resource_exists(UWSGI_RESOURCE_PATH, UWSGI_BOOTSTRAP_PATH):
-        # This will only be present/needed on OSX.
-        write_resource(UWSGI_BOOTSTRAP_PATH)
+      write_resource(UWSGI_BOOTSTRAP_PATH)
       with pushd(old_cwd):
         yield temp_dir
