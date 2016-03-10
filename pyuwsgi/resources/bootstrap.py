@@ -1,6 +1,11 @@
 import os
 import sys
 
+if sys.version_info[0] >= 3:
+    from importlib import reload
+else:
+    from imp import reload
+
 
 def activate_pex():
   sys.stderr.write('[pex_uwsgi] bootstrapping..\n')
@@ -42,6 +47,10 @@ def activate_pex():
     pex_info = PexInfo.from_pex(entry_point)
     env = PEXEnvironment(entry_point, pex_info)
     env.activate()
+
+  # import & reload in our newly bootstrapped environment
+  import pkg_resources
+  reload(pkg_resources)
 
   sys.stderr.write('[pex_uwsgi] sys.path=%s\n\n' % sys.path)
   return
