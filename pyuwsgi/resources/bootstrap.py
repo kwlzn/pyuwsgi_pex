@@ -2,9 +2,9 @@ import os
 import sys
 
 if sys.version_info[0] >= 3:
-    from importlib import reload
+  from importlib import reload
 else:
-    from imp import reload
+  from imp import reload
 
 
 def activate_pex():
